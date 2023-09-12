@@ -1,0 +1,59 @@
+.envoi {
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.recu {
+  margin-right: auto;
+  margin-left: 5px;
+  background-color: bisque;
+}
+
+.envoi{
+  margin-top: auto;
+  margin-bottom: 0%;
+  border-radius:20%;
+  width: auto; /* Largeur automatique (s'ajustera au contenu) */
+  float: right; /* Alignement à droite */
+  margin-right: 10px; /* Marge à droite pour l'espace */
+}
+
+.input{
+    word-wrap: break-word; /* Le texte passe à la ligne automatiquement */
+}
+
+ion-card{
+  border-radius:10%;
+  text-align: start;
+}
+
+ion-item {
+  --border-width: 0; /* Supprime les bordures */
+  --inner-border-width: 0; /* Supprime les bordures internes */
+  --outer-padding-start: 0; /* Supprime la marge interne à gauche */
+  --inner-padding-start: 0; /* Supprime la marge interne à gauche */
+  --inner-padding-end: 0; /* Supprime la marge interne à droite */
+  --outer-padding-end: 0; /* Supprime la marge interne à droite */
+}
+
+img{
+  border-radius: 100% !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.messages {
+  flex: 3; /* 75% de l'espace vertical */
+  overflow: auto; /* Activer le défilement si nécessaire */
+
+}
+
+.redaction {
+  flex: 1; /* 25% de l'espace vertical */
+  overflow: auto; /* Activer le défilement si nécessaire */
+}
+

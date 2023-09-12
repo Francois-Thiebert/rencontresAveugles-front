@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Renseignement du questionnaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dit nous en plus sur toi et ce que tu recherches</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form action="reponse" class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-select label="A quel genre t'identifies-tu ?" placeholder="Tu es :" [(ngModel)]="rep1" name="rep1">
+          <ion-select-option value=1>Homme</ion-select-option>
+          <ion-select-option value=2>Femme</ion-select-option>
+          <ion-select-option value=3>Non-binaire</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Avec qui veux-tu matcher ?"placeholder="Tu veux :" [(ngModel)]="rep2" name="rep2">
+          <ion-select-option value=1>Des hommes</ion-select-option>
+          <ion-select-option value=2>Des femmes</ion-select-option>
+          <ion-select-option value=3>Des non-binaires</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Dans quel tranches d'âge tu te trouves ?"placeholder="Ta tranche d'âge :" [(ngModel)]="rep3" name="rep3">
+          <ion-select-option value=1>14-17</ion-select-option>
+          <ion-select-option value=2>18-22</ion-select-option>
+          <ion-select-option value=3>23-29</ion-select-option>
+          <ion-select-option value=4>30-35</ion-select-option>
+          <ion-select-option value=5>36-40</ion-select-option>
+          <ion-select-option value=6>40+</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Dans quel tranches d'âge recherches-tu des rencontres ?"placeholder="Tranche d'âge de recherche :" [(ngModel)]="rep4" name="rep4">
+          <ion-select-option value=1>14-17</ion-select-option>
+          <ion-select-option value=2>18-22</ion-select-option>
+          <ion-select-option value=3>23-29</ion-select-option>
+          <ion-select-option value=4>30-35</ion-select-option>
+          <ion-select-option value=5>36-40</ion-select-option>
+          <ion-select-option value=6>40+</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Tu rêves d'habiter :"placeholder="" [(ngModel)]="rep5" name="rep5">
+          <ion-select-option value=1>En hyper centre ville</ion-select-option>
+          <ion-select-option value=2>A la campagne</ion-select-option>
+          <ion-select-option value=3>A la montagne</ion-select-option>
+          <ion-select-option value=4>A la mer</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Qu'est-ce que tu kiffes faire ?"placeholder="" [(ngModel)]="rep6" name="rep6">
+          <ion-select-option value=1>Netflix</ion-select-option>
+          <ion-select-option value=2>Visites</ion-select-option>
+          <ion-select-option value=3>Sport</ion-select-option>
+          <ion-select-option value=4>Gaming</ion-select-option>
+          <ion-select-option value=5>Lecture</ion-select-option>
+          <ion-select-option value=6>Philatélie</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" color="primary" (click)="submit()">Valider mes réponses</ion-button>
+  </form>
+</ion-content>

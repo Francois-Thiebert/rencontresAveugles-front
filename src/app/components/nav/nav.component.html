@@ -1,0 +1,19 @@
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid" href="/profil" color="primary">
+        <ion-icon slot="start" name="person-circle"></ion-icon>
+        profil
+      </ion-button>
+      <ion-button fill="solid" href="/vue-match" color="primary">
+        <ion-icon slot="start" name="heart-outline"></ion-icon>
+        <ion-badge *ngIf="nombre_matchs>0" slot="end" color="danger">{{nombre_matchs}}</ion-badge>
+        Matchs
+      </ion-button>
+      <ion-button *ngIf="logged" fill="solid" color="primary" (click)="logout()">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        deconnexion
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-footer>

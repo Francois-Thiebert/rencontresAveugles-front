@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">inscription</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form action="login" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Identifiant</ion-label>
+      <ion-input type="text" [(ngModel)]="login" name="login"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmer mot de passe</ion-label>
+      <ion-input type="password" name="confirmPassword"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input type="text" [(ngModel)]="prenom" name="prenom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Âge</ion-label>
+      <ion-input type="number" [(ngModel)]="age" name="age"></ion-input>
+    </ion-item>
+
+    <ion-button class="envoi" expand="full" color="primary" (click)="submit()">Soumettre mes réponses</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,27 @@
+<form #loginForm="ngForm" (ngSubmit)="check(loginForm)" class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Identifiant</ion-label>
+    <ion-input
+      fill="outline"
+      placeholder="Identifiant"
+      name="login"
+      [(ngModel)]="login"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Mot de passe</ion-label>
+    <ion-input
+      type="password"
+      fill="outline"
+      placeholder="Mot de passe"
+      name="password"
+      [(ngModel)]="password"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="primary" type="submit"><ion-icon slot="start" name="log-in-outline"></ion-icon>Se connecter</ion-button>
+</form>
+s

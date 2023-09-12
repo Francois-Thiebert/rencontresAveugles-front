@@ -1,0 +1,7 @@
+{
+  "name": "rencontresAveugles-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

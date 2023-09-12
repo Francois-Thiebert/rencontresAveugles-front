@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Edition profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Mise à jour du profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form action="modifier" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Adresse email</ion-label>
+      <ion-input type="text" [(ngModel)]="login" name="login" [placeholder]="login_actuel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input type="text" [(ngModel)]="prenom" name="prenom" [placeholder]="prenom_actuel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Âge</ion-label>
+      <ion-input type="number" [(ngModel)]="age" name="age" [placeholder]="age_actuel"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" color="primary" (click)="submit()">Soumettre mes modifications</ion-button>
+  </form>
+</ion-content>

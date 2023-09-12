@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>vue-match</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let m of matchs_user1">
+      <ion-card>
+        <ion-thumbnail *ngIf="m.compteur>20; else autreImage">
+          <img class="img" alt="photo1" src="{{m.user2.photo1}}" />
+        </ion-thumbnail>
+        <ng-template #autreImage>
+          <ion-thumbnail>
+            <img class="img" alt="mystere" src="assets/images/mystere.jpg" />
+          </ion-thumbnail>
+        </ng-template>
+        <div class="prenom">
+        <ion-card-title>{{ m.user2.prenom }}</ion-card-title>
+        </div>
+        <ion-card-header>
+          <ion-card-subtitle [ngClass]="{ 'text-vert': m.compteur > 50 }">{{ m.compteur }}% de découverte</ion-card-subtitle>
+          <ion-button expand="full" color="primary" [routerLink]="['/message', { user_distant_Id: m.user2.id }]">
+            <ion-icon name="chatbox-ellipses-outline"></ion-icon> Messages
+          </ion-button>
+          <ion-button expand="full" color="primary">
+            <ion-icon name="person-outline"></ion-icon> Infos
+          </ion-button>
+        </ion-card-header>
+        <ion-progress-bar [value]="m.compteur / 100"></ion-progress-bar>
+      </ion-card>
+    </ion-item>
+    <ion-item *ngFor="let m of matchs_user2">
+      <ion-card>
+        <ion-thumbnail *ngIf="m.compteur>20; else autreImage">
+          <img class="img" alt="photo1" src="{{m.user1.photo1}}" />
+        </ion-thumbnail>
+        <ng-template #autreImage>
+          <ion-thumbnail>
+            <img class="img" alt="mystere" src="assets/images/mystere.jpg" />
+          </ion-thumbnail>
+        </ng-template>
+        <div class="prenom">
+          <ion-card-title>{{ m.user1.prenom }}</ion-card-title>
+          </div>
+        <ion-card-header>
+          <ion-card-subtitle [ngClass]="{ 'text-vert': m.compteur > 50 }">{{ m.compteur }}% de découverte</ion-card-subtitle>
+          <ion-button expand="full" color="primary" [routerLink]="['/message', { user_distant_Id: m.user1.id }]">
+            <ion-icon name="chatbox-ellipses-outline"></ion-icon> Messages
+          </ion-button>
+          <ion-button expand="full" color="primary">
+            <ion-icon name="person-outline"></ion-icon> Infos
+          </ion-button>
+        </ion-card-header>
+        <ion-progress-bar [value]="m.compteur / 100"></ion-progress-bar>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
