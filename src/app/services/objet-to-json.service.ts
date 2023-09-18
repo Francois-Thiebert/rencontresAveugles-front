@@ -3,6 +3,7 @@ import { Match } from '../model/match';
 import { Message } from '../model/message';
 import { Reponses } from '../model/reponses';
 import { User } from '../model/user';
+import { Image } from '../model/image';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,31 @@ export class ObjetToJsonService {
   }
   return obj;
 }
+
+public imageToJson(image: Image): any {
+  let obj: any = {
+    nom: image.nom,
+    type: image.type,
+    user: image.user,
+  };
+
+  if (image.id) {
+    obj.id = image.id;
+  }
+
+  // Vérifiez si l'attribut "bytes" existe dans l'objet "Image"
+  if (image.bytes) {
+    // Traitez l'attribut "bytes" comme un tableau d'octets (bytes)
+    if (image.bytes instanceof Uint8Array) {
+      // Convertissez le tableau d'octets (bytes) en un tableau ordinaire pour l'envoi JSON
+      obj.imageByte = Array.from(image.bytes);
+    }
+  }
+
+  return obj;
+}
+
+
 
 public userToJson(user: User): any {
   let obj = {
