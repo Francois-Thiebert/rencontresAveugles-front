@@ -9,7 +9,7 @@
     <ion-item *ngFor="let m of matchs_user1">
       <ion-card>
         <ion-thumbnail *ngIf="m.compteur>20; else autreImage">
-          <img class="img" alt="photo1" src="{{m.user2.photo1}}" />
+          <!-- <img class="img" alt="photo1" src="{{m.user2.photo1}}" /> -->
         </ion-thumbnail>
         <ng-template #autreImage>
           <ion-thumbnail>
@@ -33,8 +33,8 @@
     </ion-item>
     <ion-item *ngFor="let m of matchs_user2">
       <ion-card>
-        <ion-thumbnail *ngIf="m.compteur>20; else autreImage">
-          <img class="img" alt="photo1" src="{{m.user1.photo1}}" />
+        <ion-thumbnail *ngIf="m.compteur>30; else autreImage">
+          <!-- <img class="img" alt="photo1" src="{{m.user1.photo1}}" /> -->
         </ion-thumbnail>
         <ng-template #autreImage>
           <ion-thumbnail>

@@ -27,10 +27,40 @@
       <ion-input type="number" [(ngModel)]="age" name="age" [placeholder]="age_actuel"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <input type="file" multiple value="select" #selectFile (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png">
-      <!-- <ion-button type="button" (click)="onUpload()"> Upload</ion-button> -->
-    </ion-item>
+    <ion-button color="primary" (click)="triggerFileInput1.click()">
+      Choisir photo principale
+    </ion-button>
+    <input
+      type="file"
+      accept=".jpg,.jpeg,.png"
+      #triggerFileInput1
+      (change)="onPhotoSelected($event, 'photo1')"
+      style="display: none; opacity: 0; position: absolute; left: -9999px;"
+    />
+
+    <ion-button color="primary" (click)="triggerFileInput2.click()">
+      Choisir photo secondaire
+    </ion-button>
+    <input
+      type="file"
+      accept=".jpg,.jpeg,.png"
+      #triggerFileInput2
+      (change)="onPhotoSelected($event, 'photo2')"
+      style="display: none; opacity: 0; position: absolute; left: -9999px;"
+    />
+
+    <ion-button color="primary" (click)="triggerFileInput3.click()">
+      Choisir troisième photo
+    </ion-button>
+    <input
+      type="file"
+      accept=".jpg,.jpeg,.png"
+      #triggerFileInput3
+      (change)="onPhotoSelected($event, 'photo3')"
+      style="display: none; opacity: 0; position: absolute; left: -9999px;"
+    />
+
+
 
 
     <ion-button expand="full" color="primary" (click)="submit()">Soumettre mes modifications</ion-button>

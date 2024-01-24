@@ -52,15 +52,15 @@ export class ListConversationPage implements OnInit {
     });
   }
 
-  getMatchesForCorrespondants(user: User, correspondants: User[]): Observable<Match[]> {
-    const observables: Observable<Match>[] = [];
+  // getMatchesForCorrespondants(user: User, correspondants: User[]): Observable<Match[]> {
+  //   const observables: Observable<Match>[] = [];
 
-    for (const correspondant of correspondants) {
-      observables.push(this.matchSrv.getByTwoUsers(this.user.id!, correspondant.id!));
-    }
+  //   for (const correspondant of correspondants) {
+  //     observables.push(this.matchSrv.getByTwoUsers(this.user.id!, correspondant.id!));
+  //   }
 
-    return forkJoin(observables); // Utilisation de forkJoin pour combiner les résultats en un seul Observable
-  }
+  //   return forkJoin(observables); // Utilisation de forkJoin pour combiner les résultats en un seul Observable
+  // }
 
 
 }

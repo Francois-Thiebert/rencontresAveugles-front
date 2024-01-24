@@ -1,8 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-thumbnail>
-      <img class="img" alt="photo_correspondant" src="{{photo_correspondant}}" />
+    <ion-thumbnail *ngIf="compteur > 30; else autreImage">
+      <img class="img" alt="photo_correspondant" src="{{photo_correspondant_url}}" />
     </ion-thumbnail>
+    <ng-template #autreImage>
+      <ion-thumbnail>
+        <img class="img" alt="mystere" src="assets/images/mystere.jpg" />
+      </ion-thumbnail>
+    </ng-template>
     <ion-title>{{ prenom_distant }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,9 +18,6 @@
   <ion-list>
     <ion-item *ngFor="let m of messages">
       <ion-card [ngClass]="{'envoi': m.emetteur!.id === user_local.id, 'recu': m.emetteur!.id === user_distant.id}">
-        <!-- <div class="prenom">
-        <ion-card-title>{{ m.emetteur.prenom }}</ion-card-title>
-        </div> -->
         <ion-card-content>
           {{ m.contenu }}
         </ion-card-content>

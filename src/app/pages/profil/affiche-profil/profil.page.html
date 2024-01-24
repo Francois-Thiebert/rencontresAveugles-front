@@ -1,14 +1,21 @@
-<ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Profil</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-thumbnail>
-    <img alt="photo1" src="{{photo1}}" />
-  </ion-thumbnail>
+  <ion-content [fullscreen]="true" class="photos">
+    <ion-list>
+      <ion-item *ngFor="let p of photos">
+        <ion-thumbnail>
+          <!-- <img [src]="p.bytes | safe " alt="{{p.nom}}" /> -->
+        </ion-thumbnail>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
+  <ion-content>
   <ion-item>
     <ion-label>
       <h2>{{ login }}</h2>

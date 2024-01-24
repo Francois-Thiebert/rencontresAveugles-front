@@ -31,10 +31,14 @@ export class EditProfilPage implements OnInit {
   prenom_actuel: string | undefined;
   age_actuel: number | undefined;
   selectedFile!: File;
-  photo!: Image;
+  photo1!: Image;
+  photo2!: Image;
+  photo3!: Image;
 
   ngOnInit(): void {
-    this.photo = new Image();
+    this.photo1 = new Image();
+    this.photo2 = new Image();
+    this.photo3 = new Image();
     const userId = JSON.parse(sessionStorage.getItem('user')!)?.id;
     this.user.id=userId;
     if (userId) {
@@ -52,68 +56,70 @@ submit() {
   this.user.age = this.age;
   this.user.prenom = this.prenom;
   this.user.login = this.login;
-  this.photo.user = this.user;
-  this.photo.bytes = new Uint8Array([0, 255, 1, 216, 2, 255, 3, 224, 4, 0, 5, 16, 6, 74, 7, 70]);
+  this.photo1.user = this.user;
+  this.photo2.user = this.user;
+  this.photo3.user = this.user;
 
 
-  this.imageSrv.create(this.photo).subscribe((img) => {
-    this.photo.id = img.id;
-    console.log(this.photo)
-    this.userSrv.update(this.user).subscribe((usr) => {
-      this.router.navigateByUrl('/profil');
+  if(this.photo1.nom){
+  this.imageSrv.create(this.photo1).subscribe((img) => {
+    this.photo1.id = img.id;
+    console.log(this.photo1)
     });
+  }
+  if(this.photo2.nom){
+  this.imageSrv.create(this.photo2).subscribe((img2) => {
+    this.photo2.id = img2.id;
+    });
+  }
+  if(this.photo3.nom){
+  this.imageSrv.create(this.photo3).subscribe((img3) => {
+    this.photo3.id = img3.id;
+    });
+  }
+
+  this.userSrv.update(this.user).subscribe((usr) => {
+    this.router.navigateByUrl('/profil');
   });
 
 
 
 }
 
-onFileSelected(event: any) {
+onPhotoSelected(event: any, imageName: string) {
   if (event.target.files) {
     const file = event.target.files[0];
     const reader = new FileReader();
 
     reader.onload = (e) => {
       const fileContent = e.target!.result as ArrayBuffer;
+      const bytesArray = new Uint8Array(fileContent);
 
-      // Encodez les données binaires en Base64
-      const base64Data = btoa(String.fromCharCode(...new Uint8Array(fileContent)));
+      // Convertir les octets en une tableau de nombres
+      const numberArray: number[] = Array.from(bytesArray);
 
-      // Convertissez la chaîne Base64 en tableau d'octets (Uint8Array)
-      const bytesArray = new Uint8Array(Array.from(atob(base64Data), (c) => c.charCodeAt(0)));
+      // Convertir les nombres en une chaîne Base64
+      const base64String = btoa(String.fromCharCode.apply(null, numberArray));
 
-      // Assignez les données binaires (tableau d'octets) à l'attribut photo.bytes
-      this.photo.bytes = bytesArray;
-      this.photo.type = file.type;
+      // Utilisez ces bytes pour créer un objet Image avec la chaîne Base64
+      const photo = new Image();
+      photo.nom = imageName;
+      photo.imageByte = base64String;
+      photo.type = file.type;
+
+      // Assignez l'objet Image approprié en fonction du nom de l'image
+      if (imageName === 'photo1') {
+        this.photo1 = photo;
+      } else if (imageName === 'photo2') {
+        this.photo2 = photo;
+      } else if (imageName === 'photo3') {
+        this.photo3 = photo;
+      }
     };
-
     reader.readAsArrayBuffer(file);
   }
 }
 
-
-
-
-
-
-// onFileSelected(event: any){
-//   if(event.target.files){
-//     const file = event.target.files[0];
-//     this.photo.bytes = file;
-//   }
-// }
-
-// }
-
-// onUpload() {
-//   const fd = new FormData();
-//   fd.append('image', this.selectedFile, this.selectedFile.name);
-
-//   // Remplacez 'http://localhost:8100/upload' par l'URL de votre endpoint Ionic pour gérer l'upload.
-//   this.http.post('http://localhost:8100/upload', fd).subscribe((res) => {
-//     console.log(res);
-//   });
-// }
 
 
 }

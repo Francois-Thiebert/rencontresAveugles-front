@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './components/nav/nav.component';
+import { SafePipe } from './modules/nav/safe.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, SafePipe],
   imports: [IonicModule, BrowserModule, FormsModule,IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -25,12 +25,6 @@ export class Match {
     public set user1(value: User) {
         this._user1 = value;
     }
-    public get pointsCommuns(): number {
-        return this._pointsCommuns;
-    }
-    public set pointsCommuns(value: number) {
-        this._pointsCommuns = value;
-    }
     public get compteur(): number {
         return this._compteur;
     }
@@ -48,7 +42,6 @@ export class Match {
         private _id: number,
         private _date: Date,
         private _compteur: number,
-        private _pointsCommuns: number,
         private _user1: User,
         private _user2: User,
         private _compatibilite: number,

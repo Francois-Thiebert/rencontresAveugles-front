@@ -1,11 +1,11 @@
 import { User } from "./user";
 
 export class Image {
-  public get bytes(): Uint8Array | undefined {
-    return this._bytes;
+  public get imageByte(): string | undefined {
+    return this._imageByte;
   }
-  public set bytes(value: Uint8Array | undefined) {
-    this._bytes = value;
+  public set imageByte(value: string | undefined) {
+    this._imageByte = value;
   }
   public get user(): User | undefined {
     return this._user;
@@ -36,7 +36,7 @@ export class Image {
     private _id?: number,
     private _nom?: string,
     private _type?: string,
-    private _bytes?: Uint8Array | undefined,
+    private _imageByte?: string,
     private _user?: User
   ){}
 

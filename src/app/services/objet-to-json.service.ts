@@ -12,15 +12,15 @@ export class ObjetToJsonService {
 
   constructor() { }
   public matchToJson(match: Match): any {
-    let obj = {
-      adherent1Id: match.user1.id,
-      adherent2Id: match.user2.id,
+    let obj : any = {
+      user1: match.user1,
+      user2: match.user2,
       date: match.date,
       compteur: match.compteur,
       compatibilite: match.compatibilite
   }
   if (match.id) {
-    Object.assign(obj, { id: match.id });
+    obj.id = match.id;
   }
   return obj;
 }
@@ -29,20 +29,12 @@ public imageToJson(image: Image): any {
   let obj: any = {
     nom: image.nom,
     type: image.type,
+    imageByte: image.imageByte,
     user: image.user,
   };
 
   if (image.id) {
     obj.id = image.id;
-  }
-
-  // Vérifiez si l'attribut "bytes" existe dans l'objet "Image"
-  if (image.bytes) {
-    // Traitez l'attribut "bytes" comme un tableau d'octets (bytes)
-    if (image.bytes instanceof Uint8Array) {
-      // Convertissez le tableau d'octets (bytes) en un tableau ordinaire pour l'envoi JSON
-      obj.imageByte = Array.from(image.bytes);
-    }
   }
 
   return obj;
@@ -55,11 +47,7 @@ public userToJson(user: User): any {
     age: user.age,
     login: user.login,
     password: user.password,
-    photo1: user.photo1,
-    photo2: user.photo2,
-    photo3: user.photo3,
-    photo4: user.photo4,
-    photo5: user.photo5,
+    photos: user.photos,
     prenom: user.prenom,
     role: user.role,
     reponse: user.reponse

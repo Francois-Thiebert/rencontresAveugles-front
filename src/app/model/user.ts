@@ -1,7 +1,14 @@
+import { Image } from "./image";
 import { Reponses } from "./reponses";
 import { Role } from "./role";
 
 export class User {
+  public get photos(): Image[] | undefined{
+    return this._photos;
+  }
+  public set photos(value: Image[] | undefined) {
+    this._photos = value;
+  }
   public get password(): String | undefined{
     return this._password;
   }
@@ -13,36 +20,6 @@ export class User {
   }
   public set id(value: number | undefined) {
     this._id = value;
-  }
-  public get photo5(): String | undefined {
-    return this._photo5;
-  }
-  public set photo5(value: String | undefined) {
-    this._photo5 = value;
-  }
-  public get photo4(): String | undefined {
-    return this._photo4;
-  }
-  public set photo4(value: String | undefined) {
-    this._photo4 = value;
-  }
-  public get photo3(): String | undefined {
-    return this._photo3;
-  }
-  public set photo3(value: String | undefined) {
-    this._photo3 = value;
-  }
-  public get photo2(): String | undefined {
-    return this._photo2;
-  }
-  public set photo2(value: String | undefined) {
-    this._photo2 = value;
-  }
-  public get photo1(): String | undefined {
-    return this._photo1;
-  }
-  public set photo1(value: String | undefined) {
-    this._photo1 = value;
   }
   public get role(): Role | undefined {
     return this._role;
@@ -83,11 +60,7 @@ export class User {
     private _password?: String,
     private _reponse?: Reponses,
     private _role?: Role,
-    private _photo1?: String,
-    private _photo2?: String,
-    private _photo3?: String,
-    private _photo4?: String,
-    private _photo5?: String,
+    private _photos?: Image[],
 ){}
 
 
